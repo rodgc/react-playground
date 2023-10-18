@@ -1,34 +1,28 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import NavBar from './components/navbar';
-import { Box, CssBaseline, Toolbar, Typography } from '@mui/material';
+import { Box, Container, CssBaseline, Toolbar } from '@mui/material';
 import SideBar from './components/sidebar';
+import { Home } from './pages/Home';
 
 function App() {
   return (
-    <Box sx={{ display: 'flex' }}>
-      <CssBaseline />
-      <NavBar />
-      <SideBar />
-      <Box component='main' sx={{ flexGrow: 1, p: 3 }}>
-        <Toolbar />
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Rhoncus
-          dolor purus non enim praesent elementum facilisis leo vel. Risus at
-          ultrices mi tempus imperdiet. Semper risus in hendrerit gravida rutrum
-          quisque non tellus. Convallis convallis tellus id interdum velit
-          laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed
-          adipiscing. Amet nisl suscipit adipiscing bibendum est ultricies
-          integer quis. Cursus euismod quis viverra nibh cras. Metus vulputate
-          eu scelerisque felis imperdiet proin fermentum leo. Mauris commodo
-          quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat
-          vivamus at augue. At augue eget arcu dictum varius duis at consectetur
-          lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa sapien
-          faucibus et molestie ac.
-        </Typography>
+    <BrowserRouter>
+      <Box sx={{ display: 'flex' }}>
+        <CssBaseline />
+        <NavBar />
+        <SideBar />
+        <Box component='main' sx={{ flexGrow: 1, p: 3 }}>
+          <Toolbar />
+          <Container>
+            <Routes>
+              <Route path='/' element={<Home />} />
+            </Routes>
+          </Container>
+        </Box>
       </Box>
-    </Box>
+    </BrowserRouter>
   );
 }
 
